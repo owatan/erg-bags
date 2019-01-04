@@ -61,7 +61,10 @@ code = <<EOF
       </tbody>
     </table>
     <hr />
-    <p class="text-right"><a href="https://mstdn.maud.io/@owatan">@owatan@mstdn.maud.io</a></p>
+    <p class="text-right">
+      <a href="https://mstdn.maud.io/@owatan">@owatan@mstdn.maud.io</a> /
+      <a href="https://github.com/owatan/erg-bags">Github</a>
+    </p>
   </body>
 </html>
 EOF
