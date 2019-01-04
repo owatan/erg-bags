@@ -4,6 +4,9 @@ require "net/http"
 require "uri"
 require "nokogiri"
 require "sinatra"
+#set :bind, '0.0.0.0'
+
+$html = File.open("res.html").read
 
 code = <<EOF
 <!DOCTYPE html>
@@ -41,9 +44,7 @@ code = <<EOF
         </tr>
       </thead>
       <tbody>
-        <% sql_url = "https://erogamescape.dyndns.org/~ap2/ero/toukei_kaiseki/usersql_exec.php?sql_id=2121" %>
-        <% html = Net::HTTP.get(URI.parse(sql_url)) %>
-        <% res = Nokogiri::HTML.parse(html, nil, "utf-8") %>
+        <% res = Nokogiri::HTML.parse($html, nil, "utf-8") %>
         <% res.xpath('//table/tr').to_a.drop(1).sample(3).each do |obj| %>
         <tr>
           <td><%= obj.xpath('td')[0].text() %></td>
